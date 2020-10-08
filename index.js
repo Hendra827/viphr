@@ -1893,32 +1893,6 @@ fetch('https://raw.githubusercontent.com/pajaar/grabbed-results/master/pajaar-20
 	});
 }
 
-// random anime HD v2
-// pajaar 2020
-else if (msg.body == "!animehd" ){
-const fetch = require("node-fetch"); 
-const imageToBase64 = require('image-to-base64');
-fetch('https://raw.githubusercontent.com/pajaar/grabbed-results/master/pajaar-2020-gambar-anime.txt')
-    .then(res => res.text())
-    .then(body => {
-	let tod = body.split("\n");
-	let pjr = tod[Math.floor(Math.random() * tod.length)];
-imageToBase64(pjr) // Image URL
-    .then(
-        (response) => {
-const media = new MessageMedia('image/jpeg', response);
-client.sendMessage(msg.from, media, {
-caption: `Hey...` });
-        }
-    )
-    .catch(
-        (error) => {
-            console.log(error); // Logs an error if there was one
-        }
-    )
-});
-}
-
   else if (msg.body.startsWith("!wiki ")) {
 const cheerio = require('cheerio');
 const request = require('request');
